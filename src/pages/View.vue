@@ -58,11 +58,9 @@ export default {
                         }
                     }
                 ).then((response) => {
-                    console.log(response);
                     this.closeLoading();
                     urlIdInput.value = response.body.data.urls[0].url
                 }).catch((error) => {
-                    console.log(error);
                     this.closeLoading();
                 });
             }
@@ -85,12 +83,10 @@ export default {
                         }
                     }
                 ).then((response) => {
-                    console.log(response);
                     this.closeLoading();
                      urlIdInput.value = response.body.data.urls[0].url;
                     this.redacoes = response.body.data;
                 }).catch((error) => {
-                    console.log(error);
                     this.closeLoading();
                 });
             } else {
