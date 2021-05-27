@@ -21,6 +21,7 @@
         </b-table-column>
 
         <b-table-column field="edit" :td-attrs="columnTdAttrs" v-slot="props">
+            <b-button type="is-link" outlined>Visualizar</b-button>
             <a :href=getEditUrl(props.row.id)>
                 <b-button type="is-dark" :href=getEditUrl(props.row.id) outlined>Editar</b-button>
             </a>
@@ -41,7 +42,14 @@ export default {
         return {
             redacoes: [],
             isLoading: false,
-            isFullPage: true
+            isFullPage: true,
+            isEmpty: false,
+            isBordered: false,
+            isStriped: false,
+            isNarrowed: false,
+            isHoverable: false,
+            isFocusable: false,
+            hasMobileCards: true
         }
     },
     methods: {
@@ -73,7 +81,7 @@ export default {
             });
         },
         getEditUrl(id) {
-              return window.location.origin + '/#/view/?id='+id;
+            return window.location.origin + '/#/view/?id=' + id;
         },
         columnTdAttrs(row, column) {
             if (row.id === 'Total') {
@@ -135,4 +143,3 @@ export default {
 
 }
 </script>
-

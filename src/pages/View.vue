@@ -30,11 +30,9 @@
 </template>
 
 <script>
-// import Logout from '../components/Logout.vue';
 import NavUpper from '../components/NavUpper.vue';
 export default {
     components: {
-        // 'logout': Logout,
         'navUpper': NavUpper
     },
 
@@ -137,7 +135,8 @@ export default {
     data() {
         return {
             isLoading: false,
-            isFullPage: true
+            isFullPage: true,
+            file: null
         }
     }
 

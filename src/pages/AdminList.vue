@@ -38,14 +38,20 @@
 </template>
 
 <script>
-
 export default {
-    
+
     data() {
         return {
             redacoes: [],
             isLoading: false,
-            isFullPage: true
+            isFullPage: true,
+            isEmpty: false,
+            isBordered: false,
+            isStriped: false,
+            isNarrowed: false,
+            isHoverable: false,
+            isFocusable: false,
+            hasMobileCards: true
         }
     },
 
@@ -65,11 +71,35 @@ export default {
         closeLoading() {
             this.isLoading = false;
         },
-          logout() {
+        logout() {
             localStorage.removeItem('token');
             localStorage.removeItem('alunoId');
             window.location.href = window.location.origin + '/#/';
-        }
+        },
+        columnTdAttrs(row, column) {
+            if (row.id === 'Total') {
+                if (column.label === 'ID') {
+                    return {
+                        colspan: 4,
+                        class: 'has-text-weight-bold',
+                        style: {
+                            'text-align': 'left !important'
+                        }
+                    }
+                } else if (column.label === 'Gender') {
+                    return {
+                        class: 'has-text-weight-semibold'
+                    }
+                } else {
+                    return {
+                        style: {
+                            display: 'none'
+                        }
+                    }
+                }
+            }
+            return null
+        },
     },
 
     created() {
@@ -94,4 +124,3 @@ export default {
 
 }
 </script>
-

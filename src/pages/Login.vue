@@ -78,7 +78,8 @@ export default {
     data() {
         return {
             isLoading: false,
-            isFullPage: true
+            isFullPage: true,
+            email: ''
         }
     }
 
