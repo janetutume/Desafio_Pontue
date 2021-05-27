@@ -42,7 +42,6 @@ export default {
                 localStorage.setItem('alunoId', response.body.aluno_id);
                 response.json();
                 this.closeLoading();
-                debugger
                 if (response.body.aluno_id) {
                     window.location.href = window.location.origin + '/#/list/';
                 } else {

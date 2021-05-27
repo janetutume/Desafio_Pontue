@@ -21,9 +21,11 @@
         </b-table-column>
 
         <b-table-column field="edit" :td-attrs="columnTdAttrs" v-slot="props">
-            <b-button type="is-link" outlined>Visualizar</b-button>
+            <a :href=getViewRedaction(props.row.id)>
+                <b-button type="is-link" outlined>Visualizar</b-button>
+            </a>
             <a :href=getEditUrl(props.row.id)>
-                <b-button type="is-dark" :href=getEditUrl(props.row.id) outlined>Editar</b-button>
+                <b-button type="is-dark"  outlined>Editar</b-button>
             </a>
 
             <b-button type="is-danger" @click="getDelete(props.row.id)" outlined>Deletar</b-button>
@@ -82,6 +84,9 @@ export default {
         },
         getEditUrl(id) {
             return window.location.origin + '/#/view/?id=' + id;
+        },
+        getViewRedaction(id) {
+            return window.location.origin + '/#/viewredaction/?id=' + id;
         },
         columnTdAttrs(row, column) {
             if (row.id === 'Total') {
